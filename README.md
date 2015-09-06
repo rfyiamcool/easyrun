@@ -34,29 +34,18 @@ True
 0
 ```
 
-Quick comparison of result objects:
 
-| envoy.Response | easyrun.Result |
-| -------------- | --------------- |
-| .command       | .command        |
-| .status_code   | .retcode        | 
-|                | .success        |
-|                | .output         |
-| .std_out       |                 |
-| .std_err       |                 |
-| .std_err       |                 |
+easyrun example usage:
 
-Example of `.success` usage:
+from easyrun import run_capture
 
-    from easyrun import run_capture
-
-    r = run_capture('ls -la')
-    if r.success:
-        print(r.output)
-    else:
-        print("Error: '%s' exit code %s" % (r.command, r.retcode))
-        print("         ...")
-        # print last three lines of output
-        for line in r.output.splitlines()[-3:]:
-            print("       %s" % line)
+r = run_capture('ls -la')
+if r.success:
+    print(r.output)
+else:
+    print("Error: '%s' exit code %s" % (r.command, r.retcode))
+    print("         ...")
+    # print last three lines of output
+    for line in r.output.splitlines()[-3:]:
+        print("       %s" % line)
 
