@@ -10,7 +10,7 @@ setup(
         author = "ruifengyun",
         author_email = "rfyiamcool@163.com",
         description = "a simple subprocess manage",
-        #wpackages=['easyrun'],
+        packages=['easyrun'],
         license = "MIT",
         keywords = "subprocess easyrun fengyun",
         url = "https://github.com/rfyiamcool",
