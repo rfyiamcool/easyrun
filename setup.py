@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
         name = "easyrun",
-        version = "1.0",
+        version = "3.0",
         author = "ruifengyun",
         author_email = "rfyiamcool@163.com",
         description = "a simple subprocess manage",
@@ -16,8 +16,12 @@ setup(
         url = "https://github.com/rfyiamcool",
         long_description = read('README.md'),
         classifiers = [
-            'Topic :: Utilities',
-            'License :: OSI Approved :: MIT License'
+        'Development Status :: 2 - Pre-Alpha',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.0',
+        'Topic :: Software Development :: Libraries :: Python Modules',
             ]
         )
 
