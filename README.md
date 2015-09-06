@@ -14,6 +14,8 @@ pip install easyrun
 
 ### 使用方法
 
+只单纯的执行，然后返回linux run code和执行状态
+
 ```
 >>> import easyrun
 >>> r = easyrun.run('uptime')
@@ -25,6 +27,8 @@ True
 0
 ```
 
+捕捉结果
+```
 >>> r = easyrun.run_capture('uptime')
 >>> r.output
 ' 04:07:16 up 2 min,  1 user,  load average: 0.11, 0.17, 0.08\n'
@@ -34,9 +38,14 @@ True
 0
 ```
 
+把输出的结果精简过
+```
+print(run_capture_limited('ls', maxlines=2).output)
+```
 
 easyrun example usage:
 
+```
 from easyrun import run_capture
 
 r = run_capture('ls -la')
@@ -48,4 +57,5 @@ else:
     # print last three lines of output
     for line in r.output.splitlines()[-3:]:
         print("       %s" % line)
+```
 
