@@ -5,6 +5,7 @@
 To Do List:
 
 1. return realtime result
+2. task async run
 
 ### 安装
 
@@ -27,7 +28,7 @@ True
 0
 ```
 
-捕捉结果
+捕捉所有的执行结果
 ```
 >>> r = easyrun.run_capture('uptime')
 >>> r.output
@@ -38,7 +39,7 @@ True
 0
 ```
 
-把输出的结果精简过
+把输出的结果精简过,maxlines是控制行数
 ```
 print(run_capture_limited('ls', maxlines=2).output)
 ```
