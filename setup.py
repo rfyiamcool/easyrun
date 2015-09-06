@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
         name = "easyrun",
-        version = "3.0",
+        version = "3.1",
         author = "ruifengyun",
         author_email = "rfyiamcool@163.com",
         description = "a simple subprocess manage",
