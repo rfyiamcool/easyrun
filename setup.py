@@ -6,13 +6,13 @@ def read(fname):
 
 setup(
         name = "easyrun",
-        version = "3.1",
+        version = "3.2",
         author = "ruifengyun",
         author_email = "rfyiamcool@163.com",
         description = "a simple subprocess manage",
         packages=['easyrun'],
         license = "MIT",
-        keywords = "subprocess easyrun fengyun",
+        keywords = ["subprocess easyrun","fengyun"],
         url = "https://github.com/rfyiamcool",
         long_description = read('README.md'),
         classifiers = [
