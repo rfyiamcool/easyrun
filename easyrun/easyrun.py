@@ -18,6 +18,13 @@ def run(command):
     process.communicate()
     return Result(command=command, retcode=process.returncode)
 
+# To Do list
+def run_async(command):
+    pass
+
+def run_stream(command):
+    pass
+#end
 
 def run_capture(command):
     outpipe = subprocess.PIPE
