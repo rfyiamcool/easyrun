@@ -7,6 +7,8 @@ To Do List:
 1. return realtime result
 2. task async run
 
+[开发easyrun的环境是python3哦]
+
 ### 安装
 
 ```
