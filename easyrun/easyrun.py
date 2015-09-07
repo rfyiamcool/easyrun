@@ -12,6 +12,9 @@ class Result(object):
         if retcode == 0:
             self.success = True
 
+class AsyncResult(object):
+    def __init__(self, fd=None, output=None):
+        fd.stdout.readline() 
 
 def run(command):
     process = subprocess.Popen(command, shell=True)
@@ -20,7 +23,9 @@ def run(command):
 
 # To Do list
 def run_async(command):
-    pass
+    PIPE = subprocess.PIPE
+    pipe = subprocess.Popen(cmd , shell=True, stdin=PIPE, stdout=PIPE,stderr=subprocess.STDOUT, close_fds=True) 
+    return Result(fd=pipe)
 
 def run_stream(command):
     pass
