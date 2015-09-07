@@ -4,6 +4,7 @@
 import subprocess
 import time
 import os
+import signal
 
 class Result(object):
     def __init__(self, command=None, retcode=None, output=None):
@@ -83,6 +84,8 @@ def run_capture_limited(command, maxlines=20000):
 
     return Result(command=command, retcode=process.returncode, output=''.join(lines))
 
+def run_killpid(pid):
+    os.kill(pid, signal.SIGTERM)
 
 if __name__ == '__main__':
     print('---[ .success ]---')
