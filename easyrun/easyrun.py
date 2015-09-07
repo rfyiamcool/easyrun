@@ -5,11 +5,13 @@ import subprocess
 import time
 import os
 import signal
+import tempfile
 
 class Result(object):
     def __init__(self, command=None, retcode=None, output=None):
         self.command = command or ''
         self.retcode = retcode
+        import tempfile
         self.output = output
         self.success = False
         if retcode == 0:
@@ -32,10 +34,21 @@ def run_async(command):
     pipe = subprocess.Popen(cmd , shell=True, stdin=PIPE, stdout=PIPE,stderr=subprocess.STDOUT, close_fds=True) 
     return Result(fd=pipe)
 
-# To Do list
 def run_stream(command):
-    pass
-#end
+    name = tempfile.NamedTemporaryFile(mode='w+b')
+    name = tempfile.TemporaryFile()
+    process = subprocess.Popen(command, stdout=name, stderr=proc.STDOUT, close_fds=True,shell=True)
+    time.sleep(0.1)
+    name.seek(0)
+    while True:
+        time.sleep(0.1)
+        ret = process.poll()
+        name.seek(0)
+        yield name.read()
+        if (ret is not None):
+            print 'exit'
+            break
+    
 
 def run_timeout(command,timeout=10):
     process = subprocess.Popen(cmd, stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=True)
