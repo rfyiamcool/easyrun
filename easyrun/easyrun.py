@@ -2,6 +2,8 @@
 # -*- encoding: utf-8 -*-
 
 import subprocess
+import time
+import os
 
 class Result(object):
     def __init__(self, command=None, retcode=None, output=None):
@@ -16,6 +18,9 @@ class AsyncResult(object):
     def __init__(self, fd=None, output=None):
         fd.stdout.readline() 
 
+class TimeoutError(Exception):
+    pass
+
 def run(command):
     process = subprocess.Popen(command, shell=True)
     process.communicate()
@@ -29,10 +34,21 @@ def run_async(command):
 # To Do list
 def run_stream(command):
     pass
-
-def run_timeout(command):
-    pass
 #end
+
+def run_timeout(command,timeout=10):
+    process = subprocess.Popen(cmd, stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=True)
+    t_beginning = time.time()
+    seconds_passed = 0
+    while True:
+        if process.poll() is not None:
+            break
+        seconds_passed = time.time() - t_beginning
+        if timeout and seconds_passed > timeout:
+            process.terminate()
+        time.sleep(0.1)
+    output, _ = process.communicate()
+    return Result(command=command, retcode=process.returncode,output=output)
 
 def run_capture(command):
     outpipe = subprocess.PIPE
