@@ -21,13 +21,16 @@ def run(command):
     process.communicate()
     return Result(command=command, retcode=process.returncode)
 
-# To Do list
 def run_async(command):
     PIPE = subprocess.PIPE
     pipe = subprocess.Popen(cmd , shell=True, stdin=PIPE, stdout=PIPE,stderr=subprocess.STDOUT, close_fds=True) 
     return Result(fd=pipe)
 
+# To Do list
 def run_stream(command):
+    pass
+
+def run_timeout(command):
     pass
 #end
 
