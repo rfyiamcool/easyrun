@@ -11,8 +11,16 @@ To Do List:
 
 ### 安装
 
+pip安装
 ```
 pip install easyrun
+```
+
+源码安装
+```
+git clone git@github.com:rfyiamcool/easyrun.git
+cd easyrun
+python setup.py install
 ```
 
 ### 使用方法
